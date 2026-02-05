@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moja Strona z Chatem</title>
+
+    <script src="https://www.gstatic.com/ces-console/fast/chat-messenger/prod/v1.10/chat-messenger.js"></script>
+    <link rel="stylesheet" href="https://www.gstatic.com/ces-console/fast/chat-messenger/prod/v1.10/themes/chat-messenger-default.css">
+    <link rel="stylesheet" href="https://www.gstatic.com/ces-console/fast/chat-messenger/prod/v1.10/themes/chat-messenger-layout.css">
+
+    <script>
+      window.addEventListener("chat-messenger-loaded", () => {
+        chatSdk.registerContext(
+          chatSdk.prebuilts.ces.createContext({
+            deploymentName: "projects/adk-dev-485808/locations/us/apps/2df2019f-9085-4654-9d43-52b42d713607/deployments/3cc055d5-c43f-4f42-9e5b-0a7bb07e2388",
+            tokenBroker: {
+              enableTokenBroker: true,
+              enableRecaptcha: false,
+            },
+          }),
+        );
+      });
+    </script>
+</head>
+<body>
+
+    <h1>Witaj na mojej stronie!</h1>
+    <p>Chat powinien pojawić się w prawym dolnym rogu (lub tam, gdzie go ostylujesz).</p>
+
+    <chat-messenger url-allowlist="*">
+      <chat-messenger-container
+        chat-title="test123"
+        chat-title-icon="https://gstatic.com/dialogflow-console/common/assets/ccai-favicons/conversational_agents.png"
+        enable-file-upload
+        enable-audio-input
+      >
+        <chat-reset-session-button
+          slot="titlebar-actions"
+          title-text="Start new chat"
+        ></chat-reset-session-button>
+      </chat-messenger-container>
+    </chat-messenger>
+
+</body>
+</html>
